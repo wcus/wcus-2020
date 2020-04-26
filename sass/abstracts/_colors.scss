@@ -1,0 +1,30 @@
+// Base colors
+$white: #fff;
+$cream: #fffffa;
+$off-white: #f7f7f2;
+$blue: #003b63;
+$red: #bd2b2e;
+$grey: #303030;
+$gray: $grey;
+
+// Secondary colors
+$dark-brown: #561315;
+$mid-brown: #747466;
+$light-brown: #9e8b7e;
+$light-blue: #7ea1b8;
+$light-red: #ee383b;
+$light-pink: #f98386;
+
+// Main colors in use
+$color__text: $grey;
+$color__background-body: $white;
+
+// General page elements
+$color__background-hr: #ccc;
+$color__background-pre: #eee;
+$color__background-ins: #ffedc4;
+$color__border-abbr: currentColor;
+
+// Used for focused screen-reader-text, should be high-contrast.
+$color__text-screen: $color__text;
+$color__background-screen: $cream;

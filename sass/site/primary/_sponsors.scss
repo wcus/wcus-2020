@@ -1,0 +1,139 @@
+@mixin make-cols($n: 2) {
+	grid-template-columns: repeat($n, 1fr);
+
+	.sponsor-level-title,
+	h2 {
+		grid-column: 1 / span $n;
+	}
+
+	@media (max-width: $breakpoint-small) {
+		// Max out at 3 columns on small screens (n-1 => 4-1 => 3 )
+		@if $n > 4 {
+			$n: 4;
+		}
+
+		grid-template-columns: repeat(#{$n - 1}, 1fr);
+
+		.sponsor-level-title,
+		h2 {
+			grid-column-end: span #{$n - 1};
+		}
+	}
+}
+
+.wcb_widget_sponsors {
+
+	.widget-title {
+		margin: 0 0 spacing(4);
+		@include uppercase( $font__size--level-1, 0 );
+		font-weight: 900;
+		color: $grey;
+		text-align: center;
+	}
+
+	.sponsor-level-title {
+		margin: 0 0 spacing(0);
+		@include font-size( $font__size--level-2 );
+		font-weight: 700;
+		color: $blue;
+		letter-spacing: 0;
+		text-transform: none;
+		text-align: center;
+	}
+}
+
+.wordcamp-block.wordcamp-sponsors,
+.wcb_widget_sponsors {
+
+	.sponsor-logo.sponsor-logo,
+	.wordcamp-post-list__post {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: spacing(2) spacing(1);
+		background-color: $off-white;
+		border-radius: 4px;
+		border: 2px solid transparent;
+
+		img {
+			max-height: 100px;
+		}
+
+		@include hover-state {
+			border-color: $light-brown;
+		}
+
+		&:focus-within {
+			@include dotted-outline;
+			border-color: $light-brown;
+		}
+
+		@media (max-width: $breakpoint-medium) {
+			padding: spacing(1) spacing(0);
+		}
+	}
+}
+
+.wordcamp-block.wordcamp-sponsors .wordcamp-post-list__post {
+	margin-bottom: 0;
+
+	a {
+		outline: none;
+		display: block;
+
+		img {
+			vertical-align: middle;
+			width: auto;
+		}
+	}
+}
+
+// Sponsor level layouts
+.wordcamp-block.wordcamp-sponsors,
+.wcb_widget_sponsors .sponsor-level {
+	display: grid;
+	grid-gap: spacing(1);
+	margin-bottom: spacing(4);
+
+	@media (max-width: $breakpoint-medium) {
+		grid-gap: spacing(1)/2;
+	}
+
+	// Individual sponsor levels
+	&.diamond,
+	&.has-grid-columns-2 {
+		@include make-cols( 2 );
+	}
+
+	&.platinum,
+	&.has-grid-columns-3 {
+		@include make-cols( 3 );
+	}
+
+	&.gold,
+	&.has-grid-columns-4 {
+		@include make-cols( 4 );
+	}
+
+	&.silver,
+	&.has-grid-columns-5 {
+		@include make-cols( 5 );
+	}
+
+	&.bronze,
+	&.has-grid-columns-6 {
+		@include make-cols( 6 );
+	}
+}
+
+// Some page-specific styles
+body.page-slug-sponsors .entry-content {
+	// Disable the bottom border on sponsor page,
+	// since the sponsor widget is hidden on this page.
+	background: none;
+
+	h2 {
+		margin: 0 0 spacing(2);
+		text-align: center;
+	}
+}

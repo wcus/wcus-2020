@@ -1,0 +1,198 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.posted-on a {
+	display: inline-block; /* Remove unwanted whitespace; see https://stackoverflow.com/a/10203529/450127 */
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.site-main > header,
+.page-header {
+	@include blue-wave-header;
+
+	.page-title {
+		margin: 0 auto;
+		max-width: $size__width--main;
+		@include font-size( $font__size--header );
+		letter-spacing: 1px;
+	}
+}
+
+.page-title.screen-reader-text {
+	clip: unset;
+	clip-path: unset;
+	position: static !important;
+	height: auto;
+	width: auto;
+}
+
+.page,
+.single {
+
+	.entry-header {
+		@include blue-wave-header;
+
+		.entry-title {
+			margin: 0 auto;
+			max-width: $size__width--main;
+			width: 100%;
+			@include font-size( $font__size--header );
+			letter-spacing: 1px;
+
+			@media (max-width: $breakpoint-large) {
+				@include font-size( $font__size--level-1 );
+			}
+		}
+	}
+}
+
+// For posts only.
+.single {
+
+	.entry-header {
+		padding-top: spacing(4);
+		padding-bottom: spacing(3);
+
+		.entry-title {
+			margin-bottom: spacing(2);
+		}
+
+		.entry-meta {
+			font-weight: 700;
+
+			a {
+				color: $white;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: spacing(2) auto 0;
+	padding-bottom: spacing(3) + 4px;
+	max-width: $size__width--post;
+	background: url("#{$border-light-brown}") bottom repeat-x;
+
+	*:first-child {
+		margin-top: 0;
+	}
+}
+
+.page-links {
+	clear: both;
+}
+
+.entry-footer {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-row-gap: 5px;
+	margin: spacing(2) auto spacing(3);
+	max-width: $size__width--post;
+	color: $mid-brown;
+	font-weight: 700;
+	@include font-size(1.6);
+
+	a {
+		color: $mid-brown;
+		text-decoration: none;
+
+		@include hover-state {
+			text-decoration: underline;
+		}
+	}
+
+	span:not(.edit-link) {
+		padding-left: 32px;
+		background-color: transparent;
+		background-position: left 3px;
+		background-repeat: no-repeat;
+	}
+
+	.cat-links {
+		background-image: url("#{$icon-category}");
+	}
+
+	.tags-links {
+		background-image: url("#{$icon-tag}");
+	}
+
+	.comments-link {
+		background-image: url("#{$icon-text}");
+	}
+
+	.edit-link {
+		text-align: right;
+	}
+
+	span:not(.edit-link):nth-of-type(2) {
+		grid-row-start: 2;
+	}
+
+	span:not(.edit-link):nth-of-type(3) {
+		grid-row-start: 3;
+	}
+}
+
+// Styles for archive pages.
+.blog,
+.archive {
+
+	.entry-header {
+		margin: spacing(2) auto 0;
+		max-width: $size__width--post;
+
+		.entry-title {
+			margin-bottom: spacing(0);
+
+			a {
+				color: $blue;
+				text-decoration: none;
+
+				@include hover-state {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.entry-meta {
+			color: $mid-brown;
+			font-weight: 700;
+			@include font-size(1.6);
+
+			a {
+				color: $mid-brown;
+				text-decoration: none;
+
+				@include hover-state {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	.entry-content,
+	.entry-summary {
+		background: none;
+	}
+
+	.entry-footer {
+		display: none;
+	}
+}

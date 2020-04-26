@@ -1,0 +1,35 @@
+ol.has-fancy-style {
+	counter-reset: list;
+	list-style: none;
+	margin: 0 0 spacing(3);
+	padding-left: 0;
+
+	li {
+		margin-bottom: spacing(2);
+		padding-left: spacing(3) + spacing(1);
+	}
+
+	li::after {
+		@include clearfix;
+		@include clearfix-after;
+	}
+
+	li::before {
+		counter-increment: list;
+		content: counter(list);
+		display: block;
+		float: left;
+		width: spacing(3);
+		height: spacing(3);
+		margin-left: -80px;
+		margin-right: spacing(1);
+		border-radius: 50%;
+		background: $blue;
+		color: $white;
+		font-family: $font-header;
+		font-weight: 900;
+		@include font-size(2.4);
+		line-height: spacing(3);
+		text-align: center;
+	}
+}

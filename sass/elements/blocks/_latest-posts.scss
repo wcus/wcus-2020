@@ -1,0 +1,87 @@
+.wp-block-latest-posts {
+	@include light-on-dark;
+	font-family: $font-button;
+	font-weight: 700;
+	margin: spacing(2) 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: spacing(1);
+
+	&.is-grid {
+		display: grid;
+
+		li {
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	li {
+		width: 100%;
+		background: $grey;
+		color: $white;
+		padding: spacing(2);
+		border-radius: $size__border-radius;
+	}
+
+	a {
+		@include font-size( 2.4 );
+		line-height: $font__line-height--small;
+		color: $white;
+		text-decoration: none;
+
+		@include hover-state {
+			color: $white;
+			text-decoration: underline;
+		}
+
+		&:visited {
+			color: $white;
+		}
+
+	}
+
+	time {
+		color: rgba($white, 0.7);
+		font-weight: 900;
+		margin-top: 1em;
+	}
+
+	@media (min-width: $breakpoint-small) {
+
+		li {
+			display: flex;
+			flex-wrap: wrap;
+
+			> * {
+				width: 100%;
+			}
+
+			a {
+				align-self: flex-end;
+			}
+		}
+
+		&.columns-2 {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		&.columns-3 {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		&.columns-4 {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		&.columns-5 {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
+		&.columns-6 {
+			grid-template-columns: repeat(6, 1fr);
+		}
+
+	}
+}

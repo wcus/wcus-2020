@@ -1,0 +1,30 @@
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+thead {
+	text-align: left;
+}
+
+tr {
+
+	th:first-child,
+	td:first-child {
+		padding-left: 0;
+	}
+
+	th:last-child,
+	td:last-child {
+		padding-right: 0;
+	}
+}
+
+td,
+th {
+	padding: 1em 1.5em;
+}
+
+td {
+	border-top: 1px solid rgba($light-blue, 0.2);
+}

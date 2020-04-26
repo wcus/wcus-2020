@@ -1,0 +1,33 @@
+body.single-wcb_speaker {
+
+	.speaker-avatar {
+		position: relative;
+		text-align: center;
+
+		img {
+			border-radius: 50%;
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			display: block;
+			width: calc(50% - 93px); // 96/2 + 45px
+			background: url("#{$border-sides}") left center no-repeat;
+		}
+
+		&::before {
+			top: 0;
+			bottom: 0;
+			left: 0;
+			transform: scale(-1);
+		}
+
+		&::after {
+			top: 0;
+			bottom: 0;
+			right: 0;
+		}
+	}
+}

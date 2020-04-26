@@ -1,0 +1,44 @@
+.wp-block-quote {
+	margin: 0 0 spacing(1);
+
+	p {
+		margin: 0;
+
+		+ p {
+			margin-top: spacing(1);
+		}
+
+		&:last-of-type {
+			margin-bottom: spacing(1);
+		}
+	}
+
+	cite {
+		padding-left: spacing(2);
+		background: url("#{$icon-text}") top left no-repeat;
+		@include font-size($font__size--small);
+		color: $mid-brown;
+	}
+
+	&.is-style-large {
+		margin-left: spacing(3) * -1;
+		padding: 0 0 0 spacing(3);
+		background: url("#{$icon-quote}") top left no-repeat;
+
+		@media (max-width: $breakpoint-medium) {
+			margin-left: 0;
+			padding-left: 0;
+			text-indent: 60px;
+		}
+
+		cite {
+			padding-left: 0;
+			background: none;
+			@include font-size($font__size--body);
+
+			&::before {
+				content: "— ";
+			}
+		}
+	}
+}

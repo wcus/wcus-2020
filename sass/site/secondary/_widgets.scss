@@ -1,0 +1,62 @@
+.widget {
+	margin: 0 0 1.5em;
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+}
+
+#footer-widget-1 {
+	margin: spacing(4) 0;
+
+	.textwidget {
+		text-align: center;
+	}
+}
+
+#footer-widget-3 {
+
+	.widget_media_image {
+
+		img {
+			width: 210px;
+			height: 15px;
+		}
+	}
+
+	.jetpack_widget_social_icons {
+		margin-top: spacing(1);
+
+		@media (min-width: $breakpoint-medium) {
+			text-align: right;
+			margin-top: -27px; // Height of logo.
+		}
+	}
+}
+
+#footer-widget-4 {
+
+	.widget_text {
+		text-align: right;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	a {
+		text-decoration: none;
+		font-weight: 700;
+	}
+}
+
+.site-info {
+	display: none;
+}
+
+@import "header-hero";
+@import "home-info";
+@import "subscribe";
+@import "social-links";
+@import "nav-menu";

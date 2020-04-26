@@ -1,0 +1,21 @@
+body.page-template-day-of-event {
+
+	#wcus-hero {
+		background-image: url("#{$day-of__hero-image}");
+		padding-top: spacing(2);
+		padding-bottom: spacing(10);
+		text-align: center;
+
+		h1 {
+			position: relative;
+			color: $cream;
+		}
+
+		@media (max-width: $breakpoint-small) {
+
+			&::before {
+				background-image: url("#{$day-of__hero-image}");
+			}
+		}
+	}
+}

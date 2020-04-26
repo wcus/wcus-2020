@@ -1,0 +1,52 @@
+// Gutenberg doubles the class names to increase specificity, so we'll do the same.
+
+.has-very-light-gray-background-color.has-very-light-gray-background-color {
+	background-color: $cream;
+}
+
+.has-very-dark-gray-background-color.has-very-dark-gray-background-color {
+	background-color: $grey;
+	color: $cream;
+}
+
+.has-vivid-red-background-color.has-vivid-red-background-color {
+	background-color: $red;
+	color: $cream;
+}
+
+.has-vivid-cyan-blue-background-color.has-vivid-cyan-blue-background-color {
+	background-color: $blue;
+	color: $cream;
+}
+
+.has-pale-pink-background-color.has-pale-pink-background-color {
+	background-color: $light-pink;
+}
+
+.has-pale-cyan-blue-background-color.has-pale-cyan-blue-background-color {
+	background-color: $light-blue;
+}
+
+.has-very-light-gray-color.has-very-light-gray-color {
+	color: $cream;
+}
+
+.has-very-dark-gray-color.has-very-dark-gray-color {
+	color: $grey;
+}
+
+.has-vivid-red-color.has-vivid-red-color {
+	color: $red;
+}
+
+.has-vivid-cyan-blue-color.has-vivid-cyan-blue-color {
+	color: $blue;
+}
+
+.has-pale-pink-color.has-pale-pink-color {
+	color: $light-pink;
+}
+
+.has-pale-cyan-blue-color.has-pale-cyan-blue-color {
+	color: $light-blue;
+}

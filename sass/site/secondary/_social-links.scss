@@ -1,0 +1,21 @@
+.jetpack_widget_social_icons {
+
+	.widget-title {
+		margin: 0;
+		display: inline-block;
+		color: $cream;
+		@include light-on-dark;
+		@include font-size($font__size--body);
+	}
+
+	.jetpack-social-widget-list {
+		display: inline-block;
+		margin: 0 0 0 spacing(0);
+		position: relative;
+		top: -2px;
+
+		a {
+			color: $cream;
+		}
+	}
+}

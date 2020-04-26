@@ -1,0 +1,111 @@
+body.page-slug-attendees {
+
+	.entry-content {
+		max-width: $size__width--main;
+	}
+
+	// Need to use ID since the plugin CSS uses it :/
+	#tix-attendees {
+		text-align: center;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+
+			@media (max-width: $breakpoint-mobile) {
+				display: block;
+			}
+		}
+
+		li {
+			height: auto;
+			min-height: 146px;
+			margin-bottom: spacing(2);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			&:nth-of-type(5n+1) {
+				clear: left;
+			}
+		}
+
+		.avatar {
+			margin-left: auto;
+			margin-right: auto;
+			float: none;
+			width: 96px;
+			height: 96px;
+			margin-bottom: 10px;
+			border-radius: 50%;
+		}
+
+		.tix-field {
+			flex: 1 0 100%;
+			margin-left: 0;
+			@include font-size($font__size--body);
+		}
+
+		// Respect attendee's preference for name
+		.tix-attendee-name {
+			display: none;
+		}
+
+		.tix-please-provide-your-name-as-you-would-like-it-to-appear-on-your-badge {
+			font-weight: 700;
+		}
+
+		.tix-attendee-twitter {
+			@include font-size(1.6);
+		}
+
+		li { /* stylelint-disable-line no-duplicate-selectors */
+			@media (max-width: $breakpoint-large) {
+				width: 25%;
+
+				&:nth-of-type(5n+1) {
+					clear: none;
+				}
+
+				&:nth-of-type(4n+1) {
+					clear: left;
+				}
+			}
+
+			@media (max-width: $breakpoint-medium) {
+				width: 33.3333%;
+
+				&:nth-of-type(4n+1) {
+					clear: none;
+				}
+
+				&:nth-of-type(3n+1) {
+					clear: left;
+				}
+			}
+
+			@media (max-width: $breakpoint-mobile) {
+				width: 100%;
+				clear: left;
+				text-align: left;
+				display: block;
+
+				.avatar {
+					float: left;
+					margin-right: spacing(2);
+				}
+			}
+
+			@media (max-width: $breakpoint-tiny) {
+				text-align: center;
+
+				.avatar {
+					float: none;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}

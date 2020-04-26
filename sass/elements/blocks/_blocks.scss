@@ -1,0 +1,147 @@
+.entry-content {
+
+	> p,
+	> ul,
+	> ol,
+	> [class*="wp-block"] {
+		margin-bottom: spacing(2);
+	}
+
+	> hr,
+	> .wp-block-separator {
+		margin-bottom: spacing(3);
+	}
+
+	.wp-block-spacer {
+		margin: 0 !important;
+	}
+
+	.wp-block-button {
+
+		.wp-block-button__link {
+			@include button;
+		}
+
+		&.is-style-outline .wp-block-button__link {
+			@include button-outline;
+		}
+
+		&.is-style-squared .wp-block-button__link {
+			border-radius: 0;
+		}
+	}
+}
+
+hr {
+	border-bottom: 4px dotted $light-brown;
+	background: transparent;
+	border-image: url("#{$sep-dots}");
+	border-image-slice: 4 4 4;
+	border-image-width: 0 0 4px;
+	border-image-repeat: round;
+	margin: spacing(3) auto;
+	max-width: 600px;
+
+	&.wp-block-separator {
+
+		&.is-style-dots {
+
+			&::before {
+				content: url("#{$sep-dots-sparkles}");
+				padding-left: 0;
+			}
+		}
+
+		&.is-style-wide {
+			background-image: url("#{$sep-wide-sparkles}");
+			background-repeat: no-repeat;
+			background-position: center center;
+			border-width: 0;
+			height: 72px;
+			margin: spacing(2) 0;
+			position: relative;
+
+			&::before,
+			&::after {
+				content: "";
+				border-bottom: 4px dotted $light-brown;
+				border-image: url("#{$sep-dots}");
+				border-image-slice: 4 4 4;
+				border-image-width: 0 0 4px;
+				border-image-repeat: round;
+				position: absolute;
+				top: calc(50% - 2px);
+				width: calc(50% - 75px);
+			}
+
+			&::after {
+				right: 0;
+			}
+		}
+	}
+}
+
+.wp-block-cover {
+	background-color: $grey;
+	border-radius: $size__border-radius;
+
+	h2,
+	.wp-block-cover-text {
+		color: $cream;
+	}
+
+	// Used in current WP for text (before block was changed to allow child blocks).
+	.wp-block-cover-text {
+		font-family: $font-header;
+		@include font-size( $font__size--level-2 );
+		line-height: 1.3;
+		font-weight: 700;
+		@include light-on-dark;
+	}
+}
+
+.wp-block-image {
+
+	figcaption {
+		@include font-size(1.6);
+		color: $mid-brown;
+	}
+}
+
+.wp-block-gallery {
+	margin-left: 0;
+
+	.blocks-gallery-item {
+		border-radius: $size__border-radius;
+		overflow: hidden;
+
+		figcaption {
+			color: $cream;
+		}
+	}
+}
+
+// Not technically a block, but the google maps shortcode can't be made `alignwide`.
+.googlemaps {
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	max-width: $size__width--main;
+	border-radius: $size__border-radius;
+	overflow: hidden;
+
+	@media (min-width: $size__width--main) {
+		width: $size__width--main;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		max-width: none;
+	}
+}
+
+@import "media-text";
+@import "latest-posts";
+@import "pullquote";
+@import "blockquote";
+@import "list";
+@import "speakers";
+@import "sessions";
+@import "live-schedule";

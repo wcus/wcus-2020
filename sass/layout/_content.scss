@@ -1,0 +1,126 @@
+.site {
+	background-color: $cream;
+}
+
+.site-content {
+	margin: 0 auto;
+	max-width: $size__width--main;
+
+	@media (max-width: #{$size__width--main + spacing(2) * 2} ) {
+		padding: 0 spacing(2);
+	}
+}
+
+.site-header {
+	position: relative;
+	z-index: 10;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $size__width--nav;
+
+	@media (max-width: #{$size__width--nav + spacing(2) * 2} ) {
+		padding: 0 spacing(2);
+	}
+
+	@media (max-width: $breakpoint-medium) {
+		padding-right: 0;
+	}
+
+	* {
+		z-index: 1;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		height: $size__height--nav;
+		left: calc((50vw - #{ $size__width--nav/2 }) * -1);
+		width: 100vw;
+		background-color: $white;
+		border-bottom: 1px solid rgba($light-blue, 0.2);
+	}
+
+	@media ( max-width: $size__width--nav ) {
+
+		&::before {
+			left: 0;
+		}
+	}
+}
+
+.site-branding {
+	padding: 24px 0 22px;
+	max-width: 212px;
+}
+
+.custom-logo-link {
+	@media (max-width: $breakpoint-tiny) {
+		display: block;
+		height: 24px;
+		width: 84px;
+		background: url("#{$logo-small}") no-repeat center;
+		background-size: 84px 15px;
+
+		img {
+			display: none;
+		}
+	}
+}
+
+.main-navigation {
+	flex: 1;
+}
+
+.footer-widgets-block {
+
+	&#footer-widget-1 {
+		margin: spacing(4) auto;
+		padding: spacing(2);
+		max-width: $size__width--main + spacing(2) * 2;
+	}
+
+	&#footer-widget-2,
+	&#footer-widget-3 {
+		padding: spacing(3) spacing(2);
+		background: $blue;
+		color: $white;
+	}
+
+	&#footer-widget-3 {
+		padding: spacing(2);
+		background-image: url("#{$border-light-blue}");
+		background-repeat: repeat-x;
+	}
+
+	&#footer-widget-4 {
+		margin: 0 auto;
+		padding: spacing(2);
+		max-width: $size__width--main + spacing(2) * 2;
+		display: flex;
+
+		.widget {
+			flex: 1;
+		}
+
+		@media (max-width: $breakpoint-small) {
+			display: block;
+
+			.widget {
+				text-align: left;
+
+				+ .widget {
+					margin-top: spacing(1);
+				}
+			}
+		}
+	}
+
+	.widget {
+		max-width: $size__width--main;
+		margin: 0 auto;
+	}
+}

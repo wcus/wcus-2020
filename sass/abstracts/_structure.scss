@@ -1,0 +1,39 @@
+$size__width--nav: 1240px;
+$size__width--main: 940px;
+$size__width--post: 620px;
+$size__width--schedule: 1240px; // schedule uses the full content width
+
+$size__height--nav: 73px;
+$size__height--wave: 95px;
+$size__height--wave-huge: 7vw;
+$size__height--wave-small: 60px;
+
+// Sidebar TBD
+$size__width--sidebar: $size__width--main/4;
+
+$size__border-radius: 12px;
+$size__border-radius--small: 6px;
+
+@function spacing( $i: 1 ) {
+	@if ( $i == 0 ) {
+		@return 15px;
+	}
+
+	@if ( $i == 1 ) {
+		@return 20px;
+	}
+
+	@return ( $i - 1 ) * 30px;
+}
+
+// Breakpoints
+$breakpoint-huge:  1440px;
+$breakpoint-wide:  1280px;
+$breakpoint-large:  960px;
+$breakpoint-medium: 782px;
+$breakpoint-small:  600px;
+$breakpoint-mobile: 480px;
+$breakpoint-tiny:   380px;
+
+// Special breakpoint used for alignwide responsive styles.
+$breakpoint-content-width: $size__width--post + (spacing(2) * 2);

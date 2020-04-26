@@ -1,0 +1,232 @@
+#wcus-hero {
+	position: relative;
+	margin-left: calc(50% - 50vw);
+	padding: spacing(5) 0 spacing(8);
+	width: 100vw;
+	max-width: none;
+	background: url("#{$hero-image}") no-repeat center;
+	background-size: cover;
+
+	.wcus-hero__circle {
+		background: $blue;
+		border-radius: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		position: relative;
+		width: 580px;
+		height: 580px;
+		margin: 0 auto;
+	}
+
+	.wcus-hero__circle-small {
+		position: absolute;
+		border-radius: 100%;
+		@include shadow;
+		z-index: 1;
+
+		&:not(.wcus-hero__logo) {
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				z-index: -1;
+				background: $red;
+				border-radius: 50%;
+				box-shadow: 0 1px 20px rgba(86, 19, 21, 0.9);
+				transform: scale(1.01, 1.01);
+				transition: opacity 0.2s ease-in-out, scale 0.2s ease-in-out;
+				opacity: 0;
+			}
+
+			&:hover,
+			&:focus {
+
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.wcus-hero__logo {
+		background: $cream url("#{$logo-badge}") center no-repeat;
+		background-size: 75% 75%;
+		width: 230px;
+		height: 230px;
+		top: -69px;
+		left: -28px;
+	}
+
+	.wcus-hero__message {
+		@include light-on-dark;
+		color: $white;
+		text-align: center;
+		line-height: 1.375;
+
+		h2 {
+			margin-top: spacing(2);
+			@include font-size(4.8);
+			color: $white;
+		}
+
+		p {
+			margin: spacing(2) 0 0;
+			@include font-size(3.2);
+		}
+	}
+
+	.wcus-hero__signup {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		@include uppercase(1.8);
+		text-align: center;
+		text-decoration: none;
+		width: 160px;
+		height: 160px;
+		right: 0;
+		bottom: 0;
+		background: $red;
+		color: $white;
+
+		span {
+			// Takes up space of visible focus border
+			border-bottom: 2px dotted transparent;
+		}
+
+		span::before {
+			$icon-size: 34px;
+			content: "";
+			box-sizing: content-box;
+			background: transparent url("#{$icon-pencil}") top center no-repeat;
+			background-size: $icon-size $icon-size;
+			height: $icon-size;
+			display: block;
+			padding-bottom: spacing(0);
+		}
+
+		&:focus {
+			outline: none;
+
+			span {
+				border-bottom: 2px dotted $white;
+			}
+		}
+	}
+
+	&::after {
+		content: "";
+		background: url("#{$bottom_wave}");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 100%;
+		height: 140px;
+		z-index: 2;
+
+		@media (min-width: $breakpoint-huge) {
+			background-size: 100% 140px;
+		}
+	}
+
+	@media (max-width: $breakpoint-small) {
+		background-image: none;
+		padding-bottom: spacing(3);
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 300px;
+			background: url("#{$hero-image}") no-repeat center;
+			background-size: cover;
+		}
+
+		&::after {
+			top: 162px;
+			bottom: unset;
+			z-index: 1;
+		}
+
+		.wcus-hero__circle {
+			width: 380px;
+			height: 380px;
+			z-index: 2;
+		}
+
+		.wcus-hero__logo {
+			width: 180px;
+			height: 180px;
+		}
+
+		.wcus-hero__signup {
+			width: 120px;
+			height: 120px;
+			@include font-size(1.4);
+
+			span::before {
+				$icon-size: 21px;
+				background-size: $icon-size $icon-size;
+				height: $icon-size;
+				padding-bottom: spacing(0)/2;
+			}
+		}
+
+		.wcus-hero__message {
+
+			h2 {
+				@include font-size(3.2);
+			}
+
+			p {
+				margin-top: 0;
+				@include font-size(2.4);
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		padding-top: spacing(3);
+
+		.wcus-hero__circle {
+			width: 310px;
+			height: 310px;
+		}
+
+		.wcus-hero__logo {
+			top: -25px;
+			left: -10px;
+			width: 120px;
+			height: 120px;
+		}
+
+		.wcus-hero__signup {
+			width: 100px;
+			height: 100px;
+			bottom: -15px;
+		}
+
+		.wcus-hero__message {
+
+			h2 {
+				@include font-size(2.6);
+			}
+
+			p {
+				margin-top: 0;
+				@include font-size(1.8);
+			}
+		}
+	}
+}

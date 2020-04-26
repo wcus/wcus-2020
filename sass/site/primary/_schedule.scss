@@ -1,0 +1,193 @@
+body.page-slug-schedule {
+
+	table.wcpt-schedule {
+		margin-bottom: spacing(4);
+	}
+}
+
+// Define some shared styles using variables for consistency.
+$border-style: 1px solid #e5eced; // $light-blue at 20% opacity, hex-ified to prevent overlap from making a darker color.
+$header-bg: rgba($light-blue, 0.05);
+
+table.wcpt-schedule {
+	width: $size__width--schedule;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	border-bottom: $border-style;
+	border-right: $border-style;
+	table-layout: fixed;
+
+	th,
+	td {
+		padding: spacing(0) spacing(1);
+		border: none;
+		border-top: $border-style;
+		border-left: $border-style;
+		@include font-size( 1.6 );
+		vertical-align: top;
+	}
+
+	th {
+		font-family: $font-header;
+		@include font-size( 2 );
+		line-height: $font__line-height--header;
+		font-weight: 900;
+		text-align: center;
+		background: $header-bg;
+		vertical-align: middle;
+	}
+
+	.wcpt-col-time,
+	.wcpt-time {
+		background: $header-bg;
+		width: 6em;
+		text-align: left;
+	}
+
+	.wcpt-session-speakers {
+		display: block;
+		margin-top: spacing(0) / 2;
+		color: $mid-brown;
+		font-weight: 700;
+	}
+
+	.wcpt-session-empty {
+		border-top: none;
+	}
+
+	td {
+
+		// Anything with a colspan > 1 should be centered, it spans multiple tracks.
+		&[colspan]:not([colspan="1"]) {
+			text-align: center;
+		}
+
+		&[colspan="6"]:not(.wcb-session-opening-remarks) {
+			background: $header-bg;
+		}
+
+		// Special case session label
+		&.wcb-session-morning-office-yoga::before {
+			content: "Second Floor Atrium";
+		}
+
+		div.wcb-session-favourite-icon {
+			clear: both;
+			text-align: right;
+		}
+
+		div.wcb-session-favourite-icon a.fav-session-button {
+			border: none;
+			color: rgba($light-blue, 0.5) !important;
+
+			&:hover {
+				color: $light-blue !important;
+			}
+		}
+
+		&.wcb-favourite-session {
+			background: transparent;
+
+			div.wcb-session-favourite-icon a.fav-session-button {
+				color: $light-red !important;
+
+				&:hover {
+					color: rgba($light-red, 0.6) !important;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-wide) {
+		width: 100vw;
+		margin-left: calc(50% - 50vw);
+		transform: translateX(0);
+		max-width: none;
+	}
+
+	@media (max-width: $breakpoint-large) {
+		border: none;
+		width: 100%;
+		margin-left: 0;
+
+		thead {
+			display: none;
+		}
+
+		tbody,
+		tr,
+		th,
+		td {
+			display: block;
+		}
+
+		tr {
+			margin-bottom: spacing(1);
+			border: $border-style;
+			border-bottom: none;
+		}
+
+		td {
+			border: none;
+			border-bottom: $border-style;
+
+			// On mobile, multiple-track items should stay left-aligned
+			&[colspan]:not([colspan="1"]) {
+				text-align: left;
+			}
+
+			&.wcpt-session-empty {
+				display: none;
+			}
+		}
+
+		.wcpt-time {
+			padding: spacing(1);
+			font-family: $font-header;
+			@include font-size( 2 );
+			line-height: $font__line-height--header;
+			text-align: center;
+			border-bottom: $border-style;
+			background: $header-bg;
+			width: 100%;
+		}
+
+		.wcpt-session-type-session {
+			margin-bottom: 0;
+
+			&::before {
+				@include font-size( 1.6 );
+				color: $color__text;
+				border: none;
+				content: attr(data-track-title);
+				display: block;
+				margin: 0;
+				padding: 0;
+
+				.global-session & {
+					display: none;
+				}
+			}
+		}
+
+		.wcpt-session-title {
+			display: block;
+			margin: spacing(0) 0;
+			padding: 0;
+		}
+
+		.wcpt-session-speakers {
+			display: block;
+			padding: 0;
+
+			&::before {
+				content: "Speaker: ";
+				font-style: normal;
+			}
+
+			a {
+				color: #21759b;
+			}
+		}
+	}
+}

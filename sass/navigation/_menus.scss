@@ -1,0 +1,343 @@
+.page-navigation-container {
+	text-align: right;
+	line-height: $font__line-height--header;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			position: absolute;
+			top: $size__height--nav;
+			left: -999em;
+			z-index: 99999;
+			text-align: left;
+			background-color: $white;
+			padding: spacing(0) 0;
+			border: 1px solid rgba($light-blue, 0.2);
+			border-top: none;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				width: 280px;
+				padding: spacing(0)/2 40px spacing(0)/2 spacing(0);
+				background-image: none !important;
+				border-left: 3px solid transparent;
+			}
+
+			:hover > a::after {
+				content: "";
+				position: absolute;
+				top: spacing(1)/2;
+				right: spacing(1);
+				display: block;
+				width: 16px;
+				height: 16px;
+				transform: rotate(-90deg);
+				background: url("#{$icon-chevron-down-hover}") no-repeat center;
+			}
+
+			.focus > a {
+				border-left: 3px solid currentColor;
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+
+	li {
+		display: inline-block;
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+			color: $red;
+			background-image: url("#{$icon-underline-hover}");
+		}
+
+		&.menu-item-has-children:hover > a::after,
+		&.menu-item-has-children.focus > a::after {
+			background-image: url("#{$icon-chevron-down-hover}");
+		}
+	}
+
+	a {
+		display: inline-block;
+		padding: 25px 10px;
+		font-family: $font-button;
+		font-weight: 700;
+		color: $blue;
+		text-decoration: none;
+
+		background-repeat: no-repeat;
+		background-size: 100% 3px;
+		background-position: bottom center;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.menu-item-has-children > a::after {
+		content: "";
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 8px;
+		width: 10px;
+		height: 1em;
+		background: url("#{$icon-chevron-down}") no-repeat center;
+	}
+
+	.callout {
+
+		> a {
+			@include button;
+			margin-top: 10px;
+			margin-left: spacing(1);
+			padding: 15px spacing(1) 15px #{spacing(1) + 27};
+			background-color: $red;
+			background-image: url("#{$icon-pencil}") !important;
+			background-position: spacing(1) center !important;
+			background-size: 17px 17px;
+
+			@media screen and (max-width: $breakpoint-large) {
+				margin-left: 5px;
+			}
+		}
+
+		&:hover > a {
+			color: $cream;
+		}
+
+		&.current_page_item > a,
+		&.current-menu-item > a {
+			color: $cream;
+		}
+	}
+
+	.current_page_item,
+	.current-menu-item,
+	.current_page_ancestor,
+	.current-menu-ancestor {
+
+		> a {
+			color: $grey;
+			background-image: url("#{$icon-underline-current}");
+		}
+
+		&.menu-item-has-children > a::after {
+			background-image: url("#{$icon-chevron-down-current}");
+		}
+	}
+
+	@media screen and (max-width: $breakpoint-large) {
+		@include font-size(1.6);
+
+		a {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
+}
+
+.js .menu-toggle,
+.js .dropdown-toggle {
+	display: none;
+}
+
+@media screen and (max-width: $breakpoint-medium) {
+
+	.js .dropdown-toggle {
+		display: inline-block;
+		vertical-align: middle;
+		width: 24px;
+		height: 24px;
+		background: transparent url("#{$icon-chevron-down}") no-repeat center;
+		background-size: 18px 9px;
+		transition: none;
+
+		&.toggled-on {
+			transform: rotate(180deg);
+		}
+	}
+
+	.js .menu-toggle {
+		display: inline-block;
+		margin-top: 10px;
+		margin-left: spacing(1);
+		padding: 15px spacing(1);
+		background: transparent url("#{$icon-hamburger}") no-repeat center;
+		background-size: 26px 17px;
+		text-indent: -999em;
+	}
+
+	.toggled-on .menu-toggle {
+		background: transparent url("#{$icon-cross}") no-repeat center;
+		background-size: 18px 18px;
+	}
+
+	.page-navigation-container {
+
+		ul {
+			display: none;
+			text-align: left;
+		}
+
+		&.toggled-on .menu {
+			display: block;
+			position: absolute;
+			top: 73px;
+			left: 0;
+			right: 0;
+			padding: spacing(1) spacing(2) spacing(2);
+			background: $white;
+			box-shadow: 0 4px 4px rgba($grey, 0.2);
+		}
+
+		.sub-menu {
+			position: static;
+			display: none;
+			background-color: transparent;
+			padding: 0;
+			border: none;
+
+			&.toggled-on {
+				display: block;
+				padding-top: spacing(0);
+				padding-bottom: spacing(0);
+				background-image: url("#{$icon-underline-hover}");
+				background-repeat: no-repeat;
+			}
+
+			a {
+				width: auto;
+			}
+
+			li:hover > a::after {
+				display: none;
+			}
+		}
+
+		li {
+			display: block;
+
+			&:hover > a,
+			&.focus > a {
+				background-image: none;
+			}
+		}
+
+		a {
+			padding: 10px;
+			display: block;
+		}
+
+		.current_page_item,
+		.current-menu-item,
+		.current_page_ancestor,
+		.current-menu-ancestor {
+
+			> a {
+				background-image: none;
+			}
+		}
+
+		.menu-item-has-children {
+			position: relative;
+
+			.dropdown-toggle {
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 40px;
+				width: 40px;
+			}
+
+			> a::after {
+				display: none;
+			}
+		}
+
+		.callout {
+
+			> a {
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+	max-width: $size__width--post;
+	color: $mid-brown;
+	font-weight: 700;
+	@include font-size(1.6);
+
+	a {
+		color: $mid-brown;
+		text-decoration: none;
+
+		@include hover-state {
+			text-decoration: underline;
+		}
+	}
+
+	.site-main & {
+		margin: spacing(2) auto 0;
+		padding-bottom: spacing(2) + 14px; // space + height of image
+		background: url("#{$sep-short-sparkles}") bottom center no-repeat;
+	}
+
+	.nav-links {
+		display: flex;
+
+		div:first-child:last-child {
+			width: 100%;
+		}
+	}
+
+	.nav-previous {
+		width: 50%;
+
+		a::before {
+			content: "";
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			background: transparent url("#{$icon-arrow-left}") bottom left no-repeat;
+		}
+	}
+
+	.nav-next {
+		text-align: right;
+		width: 50%;
+
+		a::after {
+			content: "";
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			background: transparent url("#{$icon-arrow-left}") top left no-repeat;
+			transform: rotate(180deg);
+		}
+	}
+}

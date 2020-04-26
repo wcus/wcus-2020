@@ -1,0 +1,17 @@
+html {
+	font-size: 62.5%;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text;
+	font-family: $font-body;
+	@include font-size( $font__size--body );
+	line-height: $font__line-height--body;
+}
+
+@import "headings";
+@import "copy";

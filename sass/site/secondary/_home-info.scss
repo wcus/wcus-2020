@@ -1,0 +1,130 @@
+#content-widgets {
+
+	&::after {
+		content: "";
+		display: block;
+		margin: spacing(3) auto;
+		width: 100%;
+		max-width: 624px;
+		height: 4px;
+		background: url("#{$border-light-blue-dense}") bottom repeat-x;
+	}
+}
+
+#content-widget-2 {
+	font-family: $font-header;
+	font-weight: 700;
+	@include font-size( $font__size--level-2 );
+	line-height: $font__line-height--header;
+	color: $blue;
+	text-align: center;
+
+	@media (max-width: $breakpoint-mobile) {
+		@include font-size(2.4);
+	}
+
+	p {
+		margin: 0;
+
+		+ p {
+			margin-top: spacing(0)/2;
+		}
+	}
+}
+
+#content-widget-3 {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: spacing(1);
+
+	@media (max-width: $breakpoint-medium) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.widget {
+		position: relative;
+		z-index: 1;
+	}
+
+	.widget a {
+		display: block;
+		margin: 0;
+		padding: spacing(2) spacing(0);
+		background: $grey;
+		text-align: center;
+		border-radius: 12px;
+
+		@include hover-state {
+			@include shadow(darken($grey, 20%));
+			box-shadow: none;
+
+			&::after {
+				opacity: 1;
+			}
+		}
+
+		&:focus {
+			@include dotted-outline;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: -1;
+			background: $grey;
+			border-radius: 12px;
+			box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+			transform: scale(1.01);
+			transition: opacity 0.2s ease-in-out, scale 0.2s ease-in-out;
+			opacity: 0;
+		}
+	}
+
+	.widget:first-of-type a {
+		background: $red;
+
+		@include hover-state {
+			@include shadow(darken($red, 20%));
+			box-shadow: none;
+		}
+
+		&::after {
+			background: $red;
+		}
+	}
+
+	.widget:last-of-type a {
+		background: $blue;
+
+		@include hover-state {
+			@include shadow(darken($blue, 20%));
+			box-shadow: none;
+		}
+
+		&::after {
+			background: $blue;
+		}
+	}
+
+	a {
+		font-family: $font-button;
+		font-weight: 900;
+		@include light-on-dark;
+		color: $cream;
+		text-decoration: none;
+
+		img {
+			display: block;
+			height: 100px;
+			margin: 0 auto spacing(1);
+		}
+	}
+}

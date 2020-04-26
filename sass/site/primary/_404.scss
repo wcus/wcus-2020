@@ -1,0 +1,14 @@
+.error404 {
+
+	.page-content {
+
+		.search-form,
+		.widget {
+			margin-bottom: spacing(3);
+		}
+
+		.search-field {
+			width: calc(100% - 110px);
+		}
+	}
+}

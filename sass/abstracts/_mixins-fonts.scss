@@ -1,0 +1,108 @@
+// Better rendering for light text on dark background
+@mixin light-on-dark() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin uppercase( $sizeValue: false, $letterSpace: 1 ) {
+	@if ( $sizeValue ) {
+		@include font-size( $sizeValue );
+	}
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: $letterSpace * 1px;
+	line-height: $font__line-height--uppercase;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin button {
+	display: inline-block;
+	padding: spacing(0);
+	font-family: $font-button;
+	font-weight: 700;
+	@include font-size( $font__size--body );
+	color: $white;
+	background-color: $red;
+	border: none;
+	border-radius: $size__border-radius--small;
+	transition: all 0.1s ease-in-out;
+	@include light-on-dark;
+
+	@include hover-state {
+		color: $white;
+		background-color: $grey;
+	}
+
+	&:focus {
+		@include dotted-outline;
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+}
+
+@mixin button-on-dark {
+	@include button;
+	color: $red;
+	background-color: $white;
+
+	@include hover-state {
+		color: $red;
+		background-color: rgba($white, 0.9);
+	}
+
+	&:focus {
+		@include dotted-outline(rgba($white, 0.9));
+	}
+}
+
+@mixin button-alt {
+	@include button;
+	background-color: $blue;
+}
+
+@mixin button-alt-on-dark {
+	@include button-alt;
+	color: $blue;
+	background-color: $white;
+
+	@include hover-state {
+		color: $blue;
+		background-color: rgba($white, 0.9);
+	}
+
+	&:focus {
+		@include dotted-outline(rgba($white, 0.9));
+	}
+}
+
+@mixin button-outline {
+	@include button;
+	color: $red;
+	background-color: transparent;
+	padding: spacing(0) - 2;
+	border: 2px solid $red;
+
+	@include hover-state {
+		color: $gray;
+		background-color: transparent;
+		border-color: $gray;
+	}
+}
+
+@mixin button-outline-on-dark {
+	@include button-outline;
+	color: $white;
+	border-color: $white;
+
+	@include hover-state {
+		color: rgba($white, 0.9);
+		border-color: rgba($white, 0.9);
+	}
+
+	&:focus {
+		@include dotted-outline(rgba($white, 0.9));
+	}
+}

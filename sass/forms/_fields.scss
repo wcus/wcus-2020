@@ -1,0 +1,64 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: $color__text;
+	border: 1px solid $color__text;
+	border-radius: $size__border-radius--small;
+	// 13 is a better padding than the spacing rhythm gives us.
+	padding: 13px spacing(1);
+
+	&:focus {
+		@include dotted-outline;
+	}
+}
+
+textarea {
+	width: 100%;
+}
+
+select {
+	background-color: $white;
+	border: 1px solid $color__text;
+	height: 40px;
+
+	&:focus {
+		@include dotted-outline;
+	}
+}
+
+// Specificity hack :(
+.contact-form.contact-form {
+
+	input[type="email"],
+	input[type="text"],
+	input[type="url"],
+	textarea {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	select {
+		min-width: 80px;
+	}
+
+	select,
+	input[type="email"],
+	input[type="text"],
+	input[type="url"],
+	textarea {
+		margin-bottom: 30px;
+	}
+}

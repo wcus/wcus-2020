@@ -1,0 +1,22 @@
+a {
+	color: $red;
+
+	&:visited {
+		color: $red;
+	}
+
+	@include hover-state {
+		color: $blue;
+	}
+}
+
+.schedule-anchors,
+.inpage-anchors {
+	font-weight: 700;
+	margin-bottom: spacing(3);
+
+	img {
+		margin: 0 7px;
+		vertical-align: middle;
+	}
+}

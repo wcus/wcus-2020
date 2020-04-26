@@ -1,0 +1,146 @@
+.wordcamp-block.wordcamp-speakers {
+	padding-left: 0;
+
+	.wordcamp-speaker {
+		display: grid;
+		grid-template-columns: 260px auto;
+	}
+
+	.wordcamp-speakers__title {
+		grid-column: 2;
+		grid-row: 1;
+
+		a {
+			color: $color__text;
+			text-decoration: none;
+
+			@include hover-state {
+				color: $red;
+				text-decoration: underline;
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+
+	.wordcamp-image__avatar-container {
+		grid-column: 1;
+		grid-row: 1 / span 2;
+		margin-left: 0;
+		margin-right: spacing(2);
+		padding-left: spacing(0);
+
+		a:focus {
+			outline: none;
+
+			img {
+				@include shadow($grey);
+			}
+		}
+
+		img {
+			max-width: 200px;
+			border-radius: 50%;
+		}
+	}
+
+	.wordcamp-post-list__post {
+		margin-bottom: spacing(3);
+
+		// Add the 4 different sparkle backgrounds to the avatars.
+		&:nth-of-type(4n+1) .wordcamp-image__avatar-container {
+			background: url("#{$sparkle-1}") center top no-repeat;
+			background-size: 230px 180px;
+		}
+
+		&:nth-of-type(4n+2) .wordcamp-image__avatar-container {
+			background: url("#{$sparkle-2}") center 170px no-repeat;
+			background-size: 230px 22px;
+		}
+
+		&:nth-of-type(4n+3) .wordcamp-image__avatar-container {
+			background: url("#{$sparkle-3}") center 15px no-repeat;
+			background-size: 230px 163px;
+		}
+
+		&:nth-of-type(4n) .wordcamp-image__avatar-container {
+			background: url("#{$sparkle-4}") center 10px no-repeat;
+			background-size: 230px 186px;
+		}
+	}
+
+	.wordcamp-speakers__content {
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	.wordcamp-speakers__permalink {
+		display: none;
+	}
+
+	@media (max-width: $breakpoint-small) {
+
+		.wordcamp-speaker {
+			grid-template-columns: auto;
+		}
+
+		.wordcamp-speakers__title {
+			grid-column: 1;
+			grid-row: 1;
+			text-align: center;
+		}
+
+		.wordcamp-image__avatar-container {
+			grid-column: 1;
+			grid-row: 2;
+			margin: 0 0 spacing(2);
+			padding: 0;
+			text-align: center;
+		}
+
+		.wordcamp-speakers__content {
+			grid-column: 1;
+			grid-row: 3;
+		}
+	}
+
+	&.has-layout-grid {
+
+		.wordcamp-speaker {
+			display: block;
+			text-align: center;
+		}
+
+		.wordcamp-image__avatar-container {
+			margin-right: 0;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		.wordcamp-post-list__post {
+
+			&:nth-of-type(4n+1) .wordcamp-image__avatar-container {
+				background-position: center top;
+			}
+
+			&:nth-of-type(4n+2) .wordcamp-image__avatar-container {
+				background-position: center 170px;
+			}
+
+			&:nth-of-type(4n+3) .wordcamp-image__avatar-container {
+				background-position: center 15px;
+			}
+
+			&:nth-of-type(4n) .wordcamp-image__avatar-container {
+				background-position: center 10px;
+			}
+		}
+
+		.wordcamp-speakers__content {
+			margin-top: spacing(2);
+			text-align: left;
+		}
+	}
+}

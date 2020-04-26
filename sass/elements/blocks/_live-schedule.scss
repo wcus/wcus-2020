@@ -1,0 +1,91 @@
+
+// See _schedule.scss
+$border-style: 1px solid #e5eced;
+$header-bg: rgba($light-blue, 0.05);
+
+.wp-block-wordcamp-live-schedule {
+
+	.wordcamp-live-schedule__title {
+		position: relative;
+		margin-top: spacing(3) !important;
+		text-align: center;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			display: block;
+			width: calc(50% - 93px); // 96/2 + 45px
+			background: url("#{$border-sides}") left center no-repeat;
+		}
+
+		&::before {
+			top: 0;
+			bottom: 0;
+			left: 0;
+			transform: scale(-1);
+		}
+
+		&::after {
+			top: 0;
+			bottom: 0;
+			right: 0;
+		}
+	}
+
+	.wordcamp-live-schedule__session {
+		border: $border-style;
+		margin-bottom: 0;
+		margin-top: -1px;
+	}
+
+	.wordcamp-live-schedule__session-track {
+		padding: spacing(0) spacing(1);
+		border-right: $border-style;
+		background: $header-bg;
+		@include font-size( 1.6 );
+		vertical-align: top;
+		width: 25%;
+	}
+
+	.wordcamp-live-schedule__session-details {
+		margin-left: 0;
+		padding: spacing(0) spacing(1);
+	}
+
+	.wordcamp-live-schedule__session-title {
+		margin-bottom: 0;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: $red;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.wordcamp-live-schedule__session-speaker {
+		font-size: 0.9em;
+	}
+
+	.wordcamp-live-schedule__session-cat {
+		font-size: 0.8em;
+	}
+
+	@media (max-width: $breakpoint-small) {
+
+		.wordcamp-live-schedule__session {
+			display: block;
+		}
+
+		.wordcamp-live-schedule__session-track {
+			display: block;
+			border-right: none;
+			border-bottom: $border-style;
+			width: auto;
+		}
+	}
+}

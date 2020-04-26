@@ -1,0 +1,54 @@
+// Double-specificity to override the other pullquote styles.
+.wp-block-pullquote.wp-block-pullquote {
+	// Override the style difference between regular/solid color
+	background: $grey url("#{$icon-speaking}") spacing(3) center no-repeat !important;
+	color: $cream;
+	@include light-on-dark;
+	border-radius: $size__border-radius;
+	text-align: left;
+	font-style: italic;
+	padding: spacing(3) spacing(3) spacing(3) spacing(9);
+
+	blockquote {
+		margin: 0;
+	}
+
+	p {
+		margin: 0;
+		@include font-size(3);
+
+		+ p {
+			margin-top: spacing(2);
+		}
+
+		&:last-of-type {
+			margin-bottom: spacing(2);
+		}
+	}
+
+	cite {
+		color: rgba($cream, 0.7);
+
+		&::before {
+			content: "— ";
+		}
+	}
+
+	&.is-style-solid-color {
+
+		blockquote {
+			max-width: 100%;
+
+			p {
+				@include font-size(3);
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-small) {
+		padding-left: spacing(3);
+		background-size: 70px 66px !important;
+		background-position: spacing(2) spacing(2) !important;
+		text-indent: 60px;
+	}
+}

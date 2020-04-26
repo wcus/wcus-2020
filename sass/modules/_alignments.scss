@@ -1,0 +1,44 @@
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	@include center-block;
+}
+
+.alignfull,
+.alignwide {
+	@media (min-width: $size__width--post) {
+		width: 100vw;
+		margin-left: calc(50% - 50vw);
+		max-width: none;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
+.alignwide {
+	max-width: $size__width--main;
+
+	@media (min-width: $breakpoint-content-width) {
+		max-width: calc(100vw - #{spacing(2) * 2});
+		margin-left: calc((#{$breakpoint-content-width} - 100vw) / 2);
+	}
+
+	@media (min-width: $size__width--main) {
+		width: $size__width--main;
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+}
