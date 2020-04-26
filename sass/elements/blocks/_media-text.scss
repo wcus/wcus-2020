@@ -40,10 +40,39 @@
 	.wp-block-media-text__content {
 		display: flex;
 		flex-wrap: wrap;
+		align-self: stretch;
 		align-content: center;
 		padding: spacing(2);
 		background-color: $blue;
 		border-radius: $size__border-radius;
+	}
+
+	&.is-vertically-aligned-center {
+
+		.wp-block-media-text__media,
+		.wp-block-media-text__content {
+			align-self: stretch;
+			align-content: center;
+		}
+	}
+
+
+	&.is-vertically-aligned-top {
+
+		.wp-block-media-text__media,
+		.wp-block-media-text__content {
+			align-self: stretch;
+			align-content: flex-start;
+		}
+	}
+
+	&.is-vertically-aligned-bottom {
+
+		.wp-block-media-text__media,
+		.wp-block-media-text__content {
+			align-self: stretch;
+			align-content: flex-end;
+		}
 	}
 
 	&.has-very-dark-gray-background-color {
