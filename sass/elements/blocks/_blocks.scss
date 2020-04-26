@@ -85,6 +85,10 @@ hr {
 	background-color: $grey;
 	border-radius: $size__border-radius;
 
+	&.alignfull {
+		border-radius: 0;
+	}
+
 	h2,
 	.wp-block-cover-text {
 		color: $cream;
