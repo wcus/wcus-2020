@@ -14,54 +14,63 @@
 		li {
 			margin: 0;
 			width: 100%;
+			background: $grey;
+			color: $white;
+			padding: spacing(2);
+			border-radius: $size__border-radius;
+		}
+
+		a {
+			color: $white;
+
+			@include hover-state {
+				color: $white;
+				text-decoration: underline;
+			}
+
+			&:visited {
+				color: $white;
+			}
+		}
+
+		time {
+			color: rgba($white, 0.7);
 		}
 	}
 
 	li {
 		width: 100%;
-		background: $grey;
-		color: $white;
-		padding: spacing(2);
-		border-radius: $size__border-radius;
 	}
 
-	a {
+	li > a {
 		@include font-size( 2.4 );
 		line-height: $font__line-height--small;
-		color: $white;
 		text-decoration: none;
-
-		@include hover-state {
-			color: $white;
-			text-decoration: underline;
-		}
-
-		&:visited {
-			color: $white;
-		}
-
 	}
 
 	time {
-		color: rgba($white, 0.7);
 		font-weight: 900;
 		margin-top: 1em;
 	}
 
-	@media (min-width: $breakpoint-small) {
+	.wp-block-latest-posts__post-excerpt {
+		font-family: $font-body;
+		font-weight: 400;
 
-		li {
-			display: flex;
-			flex-wrap: wrap;
-
-			> * {
-				width: 100%;
-			}
-
-			a {
-				align-self: flex-end;
-			}
+		.more-link {
+			display: none;
 		}
+	}
+
+	.wp-block-latest-posts__featured-image.alignleft {
+		margin-right: 1.5em;
+	}
+
+	.wp-block-latest-posts__featured-image.alignright {
+		margin-left: 1.5em;
+	}
+
+	@media (min-width: $breakpoint-small) {
 
 		&.columns-2 {
 			grid-template-columns: repeat(2, 1fr);

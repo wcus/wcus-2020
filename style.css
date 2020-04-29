@@ -772,40 +772,40 @@ hr {
     display: grid; }
     .wp-block-latest-posts.is-grid li {
       margin: 0;
-      width: 100%; }
+      width: 100%;
+      background: #303030;
+      color: #fff;
+      padding: 30px;
+      border-radius: 12px; }
+    .wp-block-latest-posts.is-grid a {
+      color: #fff; }
+      .wp-block-latest-posts.is-grid a:hover, .wp-block-latest-posts.is-grid a:active, .wp-block-latest-posts.is-grid a:focus {
+        color: #fff;
+        text-decoration: underline; }
+      .wp-block-latest-posts.is-grid a:visited {
+        color: #fff; }
+    .wp-block-latest-posts.is-grid time {
+      color: rgba(255, 255, 255, 0.7); }
   .wp-block-latest-posts li {
-    width: 100%;
-    background: #303030;
-    color: #fff;
-    padding: 30px;
-    border-radius: 12px; }
-  .wp-block-latest-posts a {
+    width: 100%; }
+  .wp-block-latest-posts li > a {
     font-size: 24px;
     font-size: 2.4rem;
     line-height: 1.4;
-    color: #fff;
     text-decoration: none; }
-    .wp-block-latest-posts a:hover, .wp-block-latest-posts a:active, .wp-block-latest-posts a:focus {
-      color: #fff;
-      text-decoration: underline; }
-    .wp-block-latest-posts a:visited {
-      color: #fff; }
   .wp-block-latest-posts time {
-    color: rgba(255, 255, 255, 0.7);
     font-weight: 900;
     margin-top: 1em; }
+  .wp-block-latest-posts .wp-block-latest-posts__post-excerpt {
+    font-family: "Nunito Sans", "Tahoma", "Verdana", sans-serif;
+    font-weight: 400; }
+    .wp-block-latest-posts .wp-block-latest-posts__post-excerpt .more-link {
+      display: none; }
+  .wp-block-latest-posts .wp-block-latest-posts__featured-image.alignleft {
+    margin-right: 1.5em; }
+  .wp-block-latest-posts .wp-block-latest-posts__featured-image.alignright {
+    margin-left: 1.5em; }
   @media (min-width: 600px) {
-    .wp-block-latest-posts li {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
-      .wp-block-latest-posts li > * {
-        width: 100%; }
-      .wp-block-latest-posts li a {
-        -ms-flex-item-align: end;
-            align-self: flex-end; }
     .wp-block-latest-posts.columns-2 {
       grid-template-columns: repeat(2, 1fr); }
     .wp-block-latest-posts.columns-3 {
