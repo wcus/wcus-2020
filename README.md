@@ -1,4 +1,4 @@
-WordCamp US 2019 Theme
+WordCamp US 2020 Theme
 ======================
 
 This is the theme used for the WordCamp US website. The compiled CSS is loaded by the us.wordcamp.org site, while the child theme itself can be used in a local development environment.
