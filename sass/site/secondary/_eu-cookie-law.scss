@@ -1,0 +1,27 @@
+.widget.widget_eu_cookie_law_widget {
+	bottom: 1rem;
+	right: 1rem;
+	left: initial;
+
+	#eu-cookie-law {
+		max-width: 22em;
+		@include font-size(1.6);
+		line-height: 1.55;
+		color: $color__text;
+		padding: 1.25em 1.25em 5.5em 1.25em;
+		background-color: $color__background-body;
+		border: 2px solid $blue;
+		border-radius: $size__border-radius--small;
+
+		form {
+			position: absolute;
+			bottom: 15px;
+			right: 15px;
+			width: 100%;
+
+			input[type="submit"] {
+				@include button;
+			}
+		}
+	}
+}
