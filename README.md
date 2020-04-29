@@ -16,6 +16,7 @@ _Alternately_, you can set up a normal WordPress site & use [the wcus-themes rep
 5. Commit your changes, including the compiled CSS
 6. Create a PR for your change
 
+
 ## Development
 
 Get started by running `npm install`. This will install the gulp, sass, autoprefixer, stylelint, and livereload dependencies.
