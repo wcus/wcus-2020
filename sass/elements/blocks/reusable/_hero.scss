@@ -1,0 +1,107 @@
+.is-hero-header {
+	$bubble-size: 560px;
+
+	.wp-block-cover__inner-container {
+		position: relative;
+		padding-top: spacing(5);
+		padding-bottom: spacing(3);
+
+		@media (max-width: $breakpoint-mobile) {
+			padding-top: spacing(2);
+		}
+	}
+
+	.is-badge-logo {
+		position: absolute;
+		top: spacing(3);
+		left: calc(50% - #{$bubble-size/2} - 30px);
+		z-index: 1;
+		width: 230px;
+		height: 230px;
+		border-radius: 50%;
+		background: $cream url("#{$logo-badge}") center no-repeat;
+		background-size: 75% 75%;
+		text-indent: -9999em;
+
+		@media (max-width: $bubble-size + 20px) {
+			left: 0;
+		}
+
+		@media (max-width: $breakpoint-small) {
+			top: spacing(2);
+			width: 180px;
+			height: 180px;
+		}
+
+		@media (max-width: $breakpoint-mobile) {
+			position: relative;
+			top: auto;
+			left: auto;
+			margin: 0 auto spacing(2);
+		}
+	}
+
+	.wp-block-group {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		position: relative;
+		width: $bubble-size;
+		height: $bubble-size;
+		margin: 0 auto;
+		padding: 3rem;
+		border-radius: 50%;
+
+		h2 {
+			margin-bottom: spacing(2);
+			@include font-size(4.8);
+		}
+
+		p {
+			margin: spacing(2) 0 0;
+			@include font-size(3.2);
+		}
+
+		@media (max-width: $breakpoint-small) {
+			width: 380px;
+			height: 380px;
+
+			h2 {
+				@include font-size(3.2);
+			}
+
+			p {
+				margin-top: 0;
+				@include font-size(2.4);
+			}
+		}
+
+		@media (max-width: $breakpoint-mobile) {
+			width: auto;
+			height: auto;
+			border-radius: $size__border-radius;
+		}
+	}
+
+	.wp-block-group__inner-container {
+		width: 100%;
+	}
+
+	&::after {
+		content: "";
+		background: url("#{$bottom_wave}");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 100%;
+		height: 140px;
+		z-index: 2;
+
+		@media (min-width: $breakpoint-huge) {
+			background-size: 100% 140px;
+		}
+	}
+}

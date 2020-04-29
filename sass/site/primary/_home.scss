@@ -3,4 +3,8 @@ body.home {
 	.entry-header {
 		@include visually-hidden;
 	}
+
+	.entry-content {
+		margin-top: 0;
+	}
 }
