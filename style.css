@@ -931,7 +931,7 @@ ol.has-fancy-style {
   width: 230px;
   height: 230px;
   border-radius: 50%;
-  background: #fffffa url("https://wc-us.org/wp-content/uploads/2019/04/logo-badge.svg") center no-repeat;
+  background: #fffffa url("https://wc-us.org/wp-content/uploads/2020/04/logo-badge-2020.svg") center no-repeat;
   background-size: 75% 75%;
   text-indent: -9999em; }
   @media (max-width: 580px) {
@@ -2112,9 +2112,9 @@ p#subscribe-submit {
   .custom-logo-link {
     display: block;
     height: 24px;
-    width: 84px;
-    background: url("https://wc-us.org/wp-content/uploads/2019/05/logo-black-small.png") no-repeat center;
-    background-size: 84px 15px; }
+    width: 87px;
+    background: url("https://wc-us.org/wp-content/uploads/2020/04/logo-black-small.png") no-repeat center;
+    background-size: 87px 18px; }
     .custom-logo-link img {
       display: none; } }
 
