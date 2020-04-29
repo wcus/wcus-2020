@@ -2385,6 +2385,10 @@ p#subscribe-submit {
       .archive .entry-header .entry-meta a:focus {
         text-decoration: underline; }
 
+.blog .entry-image,
+.archive .entry-image {
+  display: none; }
+
 .blog .entry-content,
 .blog .entry-summary,
 .archive .entry-content,
