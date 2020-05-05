@@ -1311,6 +1311,9 @@ select {
 .contact-form.contact-form textarea {
   margin-bottom: 30px; }
 
+.contact-form.contact-form label span {
+  color: #747466; }
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
