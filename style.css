@@ -2402,14 +2402,16 @@ p#subscribe-submit {
 .archive .entry-footer {
   display: none; }
 
-body.home .entry-header {
+body.home .entry-header,
+body.page-template-page-full-width .entry-header {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
   height: 1px;
   width: 1px;
   overflow: hidden; }
 
-body.home .entry-content {
+body.home .entry-content,
+body.page-template-page-full-width .entry-content {
   margin-top: 0; }
 
 .wcb_widget_sponsors .widget-title {
