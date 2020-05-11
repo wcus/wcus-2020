@@ -660,6 +660,21 @@ hr {
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .entry-content .wp-block-cover.alignfull:first-child::after {
+    content: "";
+    background: url("https://wc-us.org/wp-content/uploads/2019/04/bottom-wave.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    z-index: 2; }
+    @media (min-width: 1440px) {
+      .entry-content .wp-block-cover.alignfull:first-child::after {
+        background-size: 100% 140px; } }
 
 .wp-block-image figcaption {
   font-size: 16px;
@@ -991,22 +1006,6 @@ ol.has-fancy-style {
 
 .is-hero-header .wp-block-group__inner-container {
   width: 100%; }
-
-.is-hero-header::after {
-  content: "";
-  background: url("https://wc-us.org/wp-content/uploads/2019/04/bottom-wave.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 140px;
-  z-index: 2; }
-  @media (min-width: 1440px) {
-    .is-hero-header::after {
-      background-size: 100% 140px; } }
 
 .wordcamp-block.wordcamp-speakers {
   padding-left: 0; }
