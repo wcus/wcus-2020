@@ -1,5 +1,9 @@
 // Gutenberg doubles the class names to increase specificity, so we'll do the same.
 
+.has-background {
+	border-radius: $size__border-radius;
+}
+
 .has-very-light-gray-background-color.has-very-light-gray-background-color {
 	background-color: $cream;
 }

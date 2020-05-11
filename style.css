@@ -456,6 +456,9 @@ th {
 td {
   border-top: 1px solid rgba(126, 161, 184, 0.2); }
 
+.has-background {
+  border-radius: 12px; }
+
 .has-very-light-gray-background-color.has-very-light-gray-background-color {
   background-color: #fffffa; }
 
