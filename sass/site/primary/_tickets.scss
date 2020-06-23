@@ -37,6 +37,16 @@ body.page-slug-tickets {
 		display: block;
 		max-width: $size__width--post;
 		color: rgba($color__text, 0.8);
+		font-weight: 400;
+	}
+
+	.tix-column-description {
+		text-align: left;
+		font-weight: 700;
+	}
+
+	tbody .tix-column-description {
+		border-top: 1px solid rgba($light-blue, 0.2);
 	}
 
 	.tix-column-price {
@@ -81,19 +91,22 @@ body.page-slug-tickets {
 	@media (max-width: $breakpoint-content-width) {
 		display: block;
 
-		th.tix-column-description,
-		th.tix-column-per-ticket,
-		th.tix-column-price,
-		th.tix-column-quantity {
-			display: none;
+		thead {
+
+			.tix-column-description,
+			.tix-column-per-ticket,
+			.tix-column-price,
+			.tix-column-quantity {
+				display: none;
+			}
 		}
 
-		td {
+		tbody {
 
-			&.tix-column-description,
-			&.tix-column-per-ticket,
-			&.tix-column-price,
-			&.tix-column-quantity {
+			.tix-column-description,
+			.tix-column-per-ticket,
+			.tix-column-price,
+			.tix-column-quantity {
 				display: block;
 				padding-right: 0;
 				padding-left: 0;
@@ -101,25 +114,25 @@ body.page-slug-tickets {
 				border-top: none;
 			}
 
-			&.tix-column-per-ticket,
-			&.tix-column-price,
-			&.tix-column-quantity {
+			.tix-column-per-ticket,
+			.tix-column-price,
+			.tix-column-quantity {
 				padding-top: 0;
 				border-top: none;
 			}
 
-			&.tix-column-description {
+			.tix-column-description {
 				width: 100%;
 			}
 
-			&.tix-column-per-ticket {
+			.tix-column-per-ticket {
 
 				&::before {
 					content: "Price per ticket: ";
 				}
 			}
 
-			&.tix-column-price {
+			.tix-column-price {
 
 				&::before {
 					content: "Price: ";
@@ -127,7 +140,7 @@ body.page-slug-tickets {
 				}
 			}
 
-			&.tix-column-quantity {
+			.tix-column-quantity {
 				padding-top: 0;
 				border-bottom: 1px solid rgba($light-blue, 0.2);
 
@@ -255,6 +268,13 @@ body.page-slug-tickets {
 			display: none;
 		}
 
+		thead,
+		tbody,
+		tr {
+			display: block;
+		}
+
+		th,
 		td {
 			display: block;
 			width: 100% !important;

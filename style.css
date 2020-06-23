@@ -2681,7 +2681,13 @@ body.page-slug-tickets .entry-content {
   .tix_tickets_table .tix-ticket-excerpt {
     display: block;
     max-width: 620px;
-    color: rgba(48, 48, 48, 0.8); }
+    color: rgba(48, 48, 48, 0.8);
+    font-weight: 400; }
+  .tix_tickets_table .tix-column-description {
+    text-align: left;
+    font-weight: 700; }
+  .tix_tickets_table tbody .tix-column-description {
+    border-top: 1px solid rgba(126, 161, 184, 0.2); }
   .tix_tickets_table .tix-column-price {
     text-align: right;
     font-weight: 700; }
@@ -2707,31 +2713,36 @@ body.page-slug-tickets .entry-content {
   @media (max-width: 680px) {
     .tix_tickets_table {
       display: block; }
-      .tix_tickets_table th.tix-column-description,
-      .tix_tickets_table th.tix-column-per-ticket,
-      .tix_tickets_table th.tix-column-price,
-      .tix_tickets_table th.tix-column-quantity {
+      .tix_tickets_table thead .tix-column-description,
+      .tix_tickets_table thead .tix-column-per-ticket,
+      .tix_tickets_table thead .tix-column-price,
+      .tix_tickets_table thead .tix-column-quantity {
         display: none; }
-      .tix_tickets_table td.tix-column-description, .tix_tickets_table td.tix-column-per-ticket, .tix_tickets_table td.tix-column-price, .tix_tickets_table td.tix-column-quantity {
+      .tix_tickets_table tbody .tix-column-description,
+      .tix_tickets_table tbody .tix-column-per-ticket,
+      .tix_tickets_table tbody .tix-column-price,
+      .tix_tickets_table tbody .tix-column-quantity {
         display: block;
         padding-right: 0;
         padding-left: 0;
         text-align: left;
         border-top: none; }
-      .tix_tickets_table td.tix-column-per-ticket, .tix_tickets_table td.tix-column-price, .tix_tickets_table td.tix-column-quantity {
+      .tix_tickets_table tbody .tix-column-per-ticket,
+      .tix_tickets_table tbody .tix-column-price,
+      .tix_tickets_table tbody .tix-column-quantity {
         padding-top: 0;
         border-top: none; }
-      .tix_tickets_table td.tix-column-description {
+      .tix_tickets_table tbody .tix-column-description {
         width: 100%; }
-      .tix_tickets_table td.tix-column-per-ticket::before {
+      .tix_tickets_table tbody .tix-column-per-ticket::before {
         content: "Price per ticket: "; }
-      .tix_tickets_table td.tix-column-price::before {
+      .tix_tickets_table tbody .tix-column-price::before {
         content: "Price: ";
         font-weight: 400; }
-      .tix_tickets_table td.tix-column-quantity {
+      .tix_tickets_table tbody .tix-column-quantity {
         padding-top: 0;
         border-bottom: 1px solid rgba(126, 161, 184, 0.2); }
-        .tix_tickets_table td.tix-column-quantity::before {
+        .tix_tickets_table tbody .tix-column-quantity::before {
           content: "Quantity:";
           margin-right: 15px; } }
 
@@ -2832,6 +2843,11 @@ body.page-slug-tickets .entry-content {
     width: 100%; }
     .tix-ticket-form th + th {
       display: none; }
+    .tix-ticket-form thead,
+    .tix-ticket-form tbody,
+    .tix-ticket-form tr {
+      display: block; }
+    .tix-ticket-form th,
     .tix-ticket-form td {
       display: block;
       width: 100% !important;
