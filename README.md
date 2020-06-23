@@ -7,14 +7,13 @@ To work on the site:
 
 First, set up a local install using the [wordpress-meta-environment](https://github.com/WordPress/meta-environment), and follow [this guide](https://ryelle.codes/2016/07/local-development-for-wordcamp-websites/) to set up a new wordcamp site.
 
-_Alternately_, you can set up a normal WordPress site & use [the wcus-themes repo](https://github.com/wcus/wcus-themes) to get the WordCamp environment.
-
 1. Add this repo to your themes directory, activate it, and set up the site
 2. Create a new branch
 3. Make your changes in the Sass as needed, see "CSS Structure" for where things live.
 4. You can run `npm run watch`, which will rebuild the CSS as you're working, and also works with [livereload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) (alternately you can run `npm run build` to do a one-time build of the CSS)
-5. Commit your changes, including the compiled CSS
+5. Commit your changes, _including the compiled CSS_
 6. Create a PR for your change
+7. Request review from anyone on the web team, or post in #web
 
 
 ## Development
@@ -31,9 +30,51 @@ The scripts available to you are:
 
 If you need to, you can also run `npx gulp css` (if you're on npm 5.2+), which will compile the CSS, skipping the linter. Please don't do this if you can avoid it 🙂
 
+If you have trouble getting this to run, try installing [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) & running `nvm install`. This will update your node & npm version to the expected versions.
+
+
 ## CSS Structure
 
-TBD 🎨
+The CSS structure is based on `_s`'s sass structure. Filenames are intended to be self-explanatory, but here's a general overview. **Sections with ‼️ are where most work will happen,** the rest is fairly stable from last year's theme.
+
+When working, we might end up removing entire files, or adding new ones for new features, or totally changing the structure of a file— that's to be expected, since WordCamp.org has added new features & refactored old features.
+
+### `abstracts/` & `_normalize.scss`
+
+Abstracts contains all mixins & variables. Variables are used for spacing rhythm, font details, colors, and asset paths. Assets such as SVGs need to be uploaded to [wc-us.org](https://wc-us.org/) since WordCamp.org does not allow SVGs to be uploaded — if you need an account here, ask in #web.
+
+### `typography/` & `elements/`
+
+Base styles for the site.
+
+### `elements/blocks/`
+
+‼️ Individual block styles. The `reusable/` folder is used for resuable blocks with specific classes (ex the hero block, `is-hero-header`, that takes over the header section on a full-width page).
+
+### `forms/`
+
+Basic form styles, also includes some overrides for Contact Forms. Specific forms should be styled in their respective `site` file, unless they repeat across the site.
+
+### `navigation/`
+
+Links & menu styles.
+
+### `modules/`
+
+Self-contained components of CSS. Screen reader text helper class, float clearings, and alignments. You shouldn't need to touch these (except maybe the alignments).
+
+### `site/secondary`
+
+‼️ This is where widgets & widget areas are styled. The footer of each page is multiple widget-areas stacked, and widgets + Jetpack's widget visibility are used to control the content on each page.
+
+### `site/primary`
+
+‼️ This is where each page is styled - sponsors, speakers, schedule, etc.
+
+### `media/`
+
+Media, galleries, and captions.
+
 
 ## Colors
 
